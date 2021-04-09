@@ -11,6 +11,9 @@
 # production
 /build
 
+# old code
+/src/ignore
+
 # misc
 .DS_Store
 .env.local

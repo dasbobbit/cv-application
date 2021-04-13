@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../App.css";
 
 class Generalinfo extends Component {
   constructor(props) {
@@ -54,10 +55,8 @@ class Generalinfo extends Component {
     if (editMode === false)
       return (
         <div>
-          <h1>{firstname}</h1>
-          <h1>{surname}</h1>
-          <h2>{phone}</h2>
-          <h2>{email}</h2>
+          <h1>{firstname} {surname}</h1>
+          <h3>{phone} {email}</h3>
           <button onClick={this.handleSubmit}>Edit</button>
         </div>
       );

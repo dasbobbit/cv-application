@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Generalinfo from "./components/Generalinfo/Generalinfo";
 import Education from "./components/Education/Education";
+import Workhistory from "./components/Workhistory/Workhistory";
 import "./App.css";
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
         <Education />
         
         <h1>Work History</h1>
+        <Workhistory />
       </div>
     );
   }

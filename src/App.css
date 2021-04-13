@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.main-container {
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+
+}

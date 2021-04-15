@@ -24,7 +24,7 @@ class App extends Component {
 
     return (
       <div className="main-container">
-        <h1>Personal Information</h1>
+        <div class="content">
         <Generalinfo />
 
         <h1>Education</h1>
@@ -32,6 +32,7 @@ class App extends Component {
         
         <h1>Work History</h1>
         <Workhistory />
+        </div>
       </div>
     );
   }

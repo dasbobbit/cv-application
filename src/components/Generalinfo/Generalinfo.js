@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../App.css";
+import "../../styles/Generalinfo.css";
 
 class Generalinfo extends Component {
   constructor(props) {
@@ -23,25 +23,21 @@ class Generalinfo extends Component {
   };
 
   firstnameChange = (e) => {
-
     this.setState({
       firstname: e.target.value,
     });
   };
   surnameChange = (e) => {
-
     this.setState({
       surname: e.target.value,
     });
   };
   phoneChange = (e) => {
-
     this.setState({
       phone: e.target.value,
     });
   };
   emailChange = (e) => {
-
     this.setState({
       email: e.target.value,
     });
@@ -54,44 +50,56 @@ class Generalinfo extends Component {
 
     if (editMode === false)
       return (
-        <div>
-          <h1>{firstname} {surname}</h1>
-          <h3>{phone} {email}</h3>
+        <div class="container">
+          <h1>
+            {firstname} {surname}
+          </h1>
+          <h4>{phone}</h4>
+          <h4>{email}</h4>
           <button onClick={this.handleSubmit}>Edit</button>
         </div>
       );
 
     return (
-      <div>
+      <div class="container">
+        <h1>Personal Information</h1>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="firstname">First Name</label>
-          <input
-            onChange={this.firstnameChange}
-            value={firstname}
-            type="text"
-            id="firstname"
-          />
-          <label htmlFor="surname">Surname</label>
-          <input
-            onChange={this.surnameChange}
-            value={surname}
-            type="text"
-            id="surname"
-          />
-          <label htmlFor="phone">Phone Number</label>
-          <input
-            onChange={this.phoneChange}
-            value={phone}
-            type="text"
-            id="phone"
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            onChange={this.emailChange}
-            value={email}
-            type="text"
-            id="email"
-          />
+          <div>
+            <label htmlFor="firstname">First Name </label>
+            <input
+              onChange={this.firstnameChange}
+              value={firstname}
+              type="text"
+              id="firstname"
+            />
+          </div>
+          <div>
+            <label htmlFor="surname">Surname </label>
+            <input
+              onChange={this.surnameChange}
+              value={surname}
+              type="text"
+              id="surname"
+            />
+          </div>
+          <div>
+            <label htmlFor="phone">Phone Number </label>
+            <input
+              onChange={this.phoneChange}
+              value={phone}
+              type="text"
+              id="phone"
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email </label>
+            <input
+              onChange={this.emailChange}
+              value={email}
+              type="text"
+              id="email"
+            />
+          </div>
           <button type="submit">Save</button>
         </form>
       </div>

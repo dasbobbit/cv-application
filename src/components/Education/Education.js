@@ -24,7 +24,7 @@ class Education extends Component {
 
   handleRemove = (id) => {
     let prevState = this.state.schoolData;
-    let newState = prevState.filter(item => item.id !== id);
+    let newState = prevState.filter((item) => item.id !== id);
     this.setState({ schoolData: newState });
   };
 
@@ -64,19 +64,25 @@ class Education extends Component {
         <div>
           {schoolItems}
           <form onSubmit={this.addSchool}>
-            <label htmlFor="school">School</label>
-            <input type="text" id="school" required />
-            <label htmlFor="from">From:</label>
-            <input type="text" id="from" required />
-            <label htmlFor="to">To:</label>
-            <input type="text" id="to" required />
-            <label htmlFor="description">description:</label>
-            <input type="text" id="description" />
+            <div>
+              <label htmlFor="school">School </label>
+              <input type="text" id="school" required />
+            </div>
+            <div>
+              <label htmlFor="from">Dates </label>
+              <input type="text" id="from" class="input-to-from" required />
+              <label htmlFor="to">to</label>
+              <input type="text" id="to" class="input-to-from" required />
+            </div>
+            <div>
+              <label htmlFor="description">Description </label>
+              <input type="text" id="description" />
+            </div>
             <button type="submit">Save</button>
+            <button type="submit" onClick={this.handleAddBtn}>
+              Cancel
+            </button>
           </form>
-          <button type="submit" onClick={this.handleAddBtn}>
-            Cancel
-          </button>
         </div>
       );
     } else {

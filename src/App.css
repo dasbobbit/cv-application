@@ -40,6 +40,14 @@
 .main-container {
   width: 210mm;
   height: 297mm;
-  margin: 0 auto;
+  margin: 20px auto;
+  border: 1px solid black
+}
 
+.content {
+  margin: 20px;
+}
+
+.input-to-from {
+  width: 80px;
 }

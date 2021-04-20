@@ -5,14 +5,11 @@ function EduDisplay(props) {
   console.log(props);
 
   return (
-    <div class="">
-      <div class="top-bar">
-        <h2>{props.item.school}</h2>
-        <h2>
-          {props.item.from} - {props.item.to}
-        </h2>
-      </div>
-      <h2>{props.item.description}</h2>
+    <div className="display-grid">
+      <h2 className="display-school">{props.item.school}</h2>
+      <h2 className="display-dates">{props.item.from} - {props.item.to}</h2>
+
+      <h3 className="display-description">{props.item.description}</h3>
       <button type="submit" onClick={() => props.handleRemove(props.item.id)}>
         Remove
       </button>

@@ -1,0 +1,74 @@
+.work-form {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.work-form > .company-input {
+  grid-column: 2 / 3;
+}
+
+.work-form > .position-label {
+  grid-column: 1 / 2;
+}
+
+.work-form > .work-position {
+  grid-column: 2 / 3;
+}
+
+
+.work-form > .date-label {
+  grid-column: 4 / 5;
+}
+
+.work-form > .work-from {
+  grid-column: 5 / 6;
+}
+
+.work-form > .work-to {
+  grid-column: 6 / 7;
+}
+
+.work-form > .maintasks-input {
+  grid-column: 2 / 7;
+}
+
+.maintasks-input {
+  resize: vertical;
+  overflow: auto;
+} 
+
+
+
+.work-display-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.work-display-grid > * {
+  margin: 6px 0;
+}
+
+.work-display-grid > .display-position {
+  grid-column: 1 / 2;
+  
+}
+
+.work-display-grid > .display-dates {
+  grid-column: 2 / 4;
+
+  text-align: right;
+}
+
+.work-display-grid > .display-company {
+  grid-column: 1 / 2;
+  font-weight: normal;
+}
+
+.work-display-grid > .display-maintasks {
+  grid-column: 1 / 4;
+  font-weight: normal;
+}
+
+.work-display-grid > button {
+  grid-column: 3 / 4;
+}

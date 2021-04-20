@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EduDisplay from "./EduDisplay";
+import "../../styles/Education.css";
 import uniqid from "uniqid";
 
 class Education extends Component {
@@ -63,23 +64,20 @@ class Education extends Component {
       return (
         <div>
           {schoolItems}
-          <form onSubmit={this.addSchool}>
-            <div>
-              <label htmlFor="school">School </label>
-              <input type="text" id="school" required />
-            </div>
-            <div>
-              <label htmlFor="from">Dates </label>
-              <input type="text" id="from" class="input-to-from" required />
-              <label htmlFor="to">to</label>
-              <input type="text" id="to" class="input-to-from" required />
-            </div>
-            <div>
-              <label htmlFor="description">Description </label>
-              <input type="text" id="description" />
-            </div>
-            <button type="submit">Save</button>
-            <button type="submit" onClick={this.handleAddBtn}>
+          <form onSubmit={this.addSchool} className="school-form">
+            <label htmlFor="school">School Name</label>
+            <input type="text" id="school" required />
+
+            <label htmlFor="from" className="date-label">Dates </label>
+            <input type="text" id="from" className="input-to-from school-from" required />
+            {/* <label htmlFor="to">to</label> */}
+            <input type="text" id="to" className="input-to-from school-to" required />
+
+            <label htmlFor="description">Description </label>
+            <textarea type="textarea" id="description" className="school-description"></textarea>
+
+            <button type="submit" className="school-save">Save</button>
+            <button type="submit" className="school-cancel" onClick={this.handleAddBtn}>
               Cancel
             </button>
           </form>

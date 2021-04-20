@@ -1,0 +1,73 @@
+.top-bar {
+  display: flex;
+}
+
+.school-form {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.school-form > label {
+  grid-column: 1 / 2;
+}
+
+.school-form > .date-label {
+  grid-column: 4 / 5;
+}
+
+.school-form > .school-from {
+  grid-column: 5 / 6;
+}
+
+.school-form > .school-to {
+  grid-column: 6 / 7;
+}
+
+.school-form > input {
+  grid-column: 2 / 3;
+}
+
+.school-form > .school-description {
+  grid-column: 2 / 7;
+}
+
+.school-description {
+  resize: vertical;
+  overflow: auto;
+}
+
+.school-form > .school-save {
+  grid-column: 5 / 6;
+}
+
+.school-form > .school-cancel {
+  grid-column: 6 / 7;
+}
+
+.display-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.display-grid > * {
+  margin: 6px 0;
+}
+
+.display-grid > .display-school {
+  grid-column: 1 / 2;
+}
+
+.display-grid > .display-dates {
+  grid-column: 2 / 4;
+
+  text-align: right;
+}
+
+.display-grid > .display-description {
+  grid-column: 1 / 4;
+  font-weight: normal;
+}
+
+.display-grid > button {
+  grid-column: 3 / 4;
+}

@@ -1,7 +1,32 @@
-.container {
+.display-container, .display-container > h4 {
+  text-align: center;
+  margin: 6px auto;
+}
+
+.edit-container {
+
+}
+
+h1 {
+  margin: 20px auto 6px auto;
   text-align: center;
 }
 
-h4 {
-  margin: 10px auto;
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: right;
+  gap: 6px;
+}
+
+form > label {
+  grid-column: 1 / 2;
+}
+
+form > input {
+  grid-column: 2 / 3;
+}
+
+form > button {
+  grid-column: 2 / 3;
 }

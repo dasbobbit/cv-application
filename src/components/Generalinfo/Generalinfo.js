@@ -50,7 +50,7 @@ class Generalinfo extends Component {
 
     if (editMode === false)
       return (
-        <div class="container">
+        <div className="display-container">
           <h1>
             {firstname} {surname}
           </h1>
@@ -61,45 +61,39 @@ class Generalinfo extends Component {
       );
 
     return (
-      <div class="container">
+      <div className="edit-container">
         <h1>Personal Information</h1>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="firstname">First Name </label>
-            <input
-              onChange={this.firstnameChange}
-              value={firstname}
-              type="text"
-              id="firstname"
-            />
-          </div>
-          <div>
-            <label htmlFor="surname">Surname </label>
-            <input
-              onChange={this.surnameChange}
-              value={surname}
-              type="text"
-              id="surname"
-            />
-          </div>
-          <div>
-            <label htmlFor="phone">Phone Number </label>
-            <input
-              onChange={this.phoneChange}
-              value={phone}
-              type="text"
-              id="phone"
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email </label>
-            <input
-              onChange={this.emailChange}
-              value={email}
-              type="text"
-              id="email"
-            />
-          </div>
+          <label htmlFor="firstname">First Name </label>
+          <input
+            onChange={this.firstnameChange}
+            value={firstname}
+            type="text"
+            id="firstname"
+            required
+          />
+          <label htmlFor="surname">Surname </label>
+          <input
+            onChange={this.surnameChange}
+            value={surname}
+            type="text"
+            id="surname"
+            required
+          />
+          <label htmlFor="phone">Phone Number </label>
+          <input
+            onChange={this.phoneChange}
+            value={phone}
+            type="text"
+            id="phone"
+          />
+          <label htmlFor="email">Email </label>
+          <input
+            onChange={this.emailChange}
+            value={email}
+            type="text"
+            id="email"
+          />
           <button type="submit">Save</button>
         </form>
       </div>

@@ -27,10 +27,10 @@ class App extends Component {
         <div class="content">
         <Generalinfo />
 
-        <h1>Education</h1>
+        <h1 className="section-header">Education</h1>
         <Education />
         
-        <h1>Work History</h1>
+        <h1 className="section-header">Work History</h1>
         <Workhistory />
         </div>
       </div>

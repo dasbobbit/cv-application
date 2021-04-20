@@ -51,3 +51,8 @@
 .input-to-from {
   width: 80px;
 }
+
+.section-header {
+  text-align: left;
+  border-bottom: 1px solid black;
+}

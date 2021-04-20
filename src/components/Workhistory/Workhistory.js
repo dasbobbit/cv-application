@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import WorkDisplay from "./WorkDisplay";
+import "../../styles/Workhistory.css";
 import uniqid from "uniqid";
 
 class Workhistory extends Component {
@@ -24,7 +25,7 @@ class Workhistory extends Component {
 
   handleRemove = (id) => {
     let prevState = this.state.workData;
-    let newState = prevState.filter(item => item.id !== id);
+    let newState = prevState.filter((item) => item.id !== id);
     this.setState({ workData: newState });
   };
 
@@ -39,9 +40,9 @@ class Workhistory extends Component {
       let newWork = {
         id: uniqid(),
         company: e.target[0].value,
-        position: e.target[1].value,
-        from: e.target[2].value,
-        to: e.target[3].value,
+        position: e.target[3].value,
+        from: e.target[1].value,
+        to: e.target[2].value,
         maintasks: e.target[4].value,
       };
       this.setState({
@@ -64,22 +65,52 @@ class Workhistory extends Component {
       return (
         <div>
           {workItems}
-          <form onSubmit={this.addWork}>
+          <form onSubmit={this.addWork} className="work-form">
             <label htmlFor="company">Company</label>
-            <input type="text" id="company" required />
-            <label htmlFor="position">Company</label>
-            <input type="text" id="position" required />
-            <label htmlFor="from">From:</label>
-            <input type="text" id="from" required />
-            <label htmlFor="to">To:</label>
-            <input type="text" id="to" required />
+            <input
+              type="text"
+              id="company"
+              className="company-input"
+              required
+            />
+
+            <label htmlFor="from" className="date-label">
+              Dates
+            </label>
+            <input
+              type="text"
+              id="from"
+              className="input-to-from work-from"
+              required
+            />
+            {/* <label htmlFor="to"></label> */}
+            <input
+              type="text"
+              id="to"
+              className="input-to-from work-to"
+              required
+            />
+
+            <label htmlFor="position" class="position-label">
+              Position
+            </label>
+            <input
+              type="text"
+              id="position"
+              className="work-position"
+              required
+            />
+
             <label htmlFor="maintasks">Main Tasks:</label>
-            <input type="text" id="maintasks" />
+            <textarea
+              type="text"
+              id="maintasks"
+              className="maintasks-input"
+            ></textarea>
+
             <button type="submit">Save</button>
+            <button type="submit" onClick={this.handleAddBtn}>Cancel</button>
           </form>
-          <button type="submit" onClick={this.handleAddBtn}>
-            Cancel
-          </button>
         </div>
       );
     } else {

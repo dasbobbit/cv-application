@@ -1,98 +1,81 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import EduDisplay from "./EduDisplay";
 import "../../styles/Education.css";
 import uniqid from "uniqid";
 
-class Education extends Component {
-  constructor(props) {
-    super(props);
+const Education = (props) => {
 
-    this.state = {
-      schoolData: [],
-      addMode: false,
-    };
-    this.handleAddBtn = this.handleAddBtn.bind(this);
-    this.addSchool = this.addSchool.bind(this);
-  }
+  const [schoolData, setSchoolData] = useState([]);
+  const [addMode, setAddMode] = useState(false);
 
-  handleAddBtn = (e) => {
+  const handleAddBtn = (e) => {
     e.preventDefault();
-    let switchAddMode = !this.state.addMode;
-    this.setState({
-      addMode: switchAddMode,
-    });
+    let switchAddMode = !addMode;
+    setAddMode(switchAddMode);
   };
 
-  handleRemove = (id) => {
-    let prevState = this.state.schoolData;
-    let newState = prevState.filter((item) => item.id !== id);
-    this.setState({ schoolData: newState });
+  const handleRemove = (id) => {
+    let prevSchoolData = schoolData;
+    let newData = prevSchoolData.filter((item) => item.id !== id);
+    setSchoolData(newData);
   };
 
-  addSchool = (e) => {
+  const addSchool = (e) => {
     e.preventDefault();
-    let switchAddMode = !this.state.addMode;
-    if (e.target[0].value && e.target[0].value && e.target[0].value === "") {
-      this.setState({
-        addMode: switchAddMode,
-      });
+    let switchAddMode = !addMode;
+    if (e.target[0].value && e.target[1].value && e.target[2].value === "") {
+      setAddMode(switchAddMode)
     } else {
-      let newEdu = {
-        id: uniqid(),
-        school: e.target[0].value,
-        from: e.target[1].value,
-        to: e.target[2].value,
-        description: e.target[3].value,
-      };
-      this.setState({
-        schoolData: this.state.schoolData.concat(newEdu),
-        addMode: switchAddMode,
-      });
+      setSchoolData([
+        ...schoolData,
+        {
+          id: uniqid(),
+          school: e.target[0].value,
+          from: e.target[1].value,
+          to: e.target[2].value,
+          description: e.target[3].value
+        }
+      ])
+      setAddMode(switchAddMode);
     }
   };
 
-  render() {
-    const { schoolData, addMode } = this.state;
+  const schoolItems = schoolData.map((item) => (
+    <EduDisplay key={item.id} item={item} handleRemove={handleRemove} />
+  ));
 
-    const schoolItems = schoolData.map((item) => (
-      <EduDisplay key={item.id} item={item} handleRemove={this.handleRemove} />
-    ));
+  if (addMode === true) {
+    return (
+      <div>
+        {schoolItems}
+        <form onSubmit={addSchool} className="school-form">
+          <label htmlFor="school">School Name</label>
+          <input type="text" id="school" required />
 
-    console.log(schoolItems);
+          <label htmlFor="from" className="date-label">Dates </label>
+          <input type="text" id="from" className="input-to-from school-from" required />
+          {/* <label htmlFor="to">to</label> */}
+          <input type="text" id="to" className="input-to-from school-to" required />
 
-    if (addMode === true) {
-      return (
-        <div>
-          {schoolItems}
-          <form onSubmit={this.addSchool} className="school-form">
-            <label htmlFor="school">School Name</label>
-            <input type="text" id="school" required />
+          <label htmlFor="description">Description </label>
+          <textarea type="textarea" id="description" className="school-description"></textarea>
 
-            <label htmlFor="from" className="date-label">Dates </label>
-            <input type="text" id="from" className="input-to-from school-from" required />
-            {/* <label htmlFor="to">to</label> */}
-            <input type="text" id="to" className="input-to-from school-to" required />
-
-            <label htmlFor="description">Description </label>
-            <textarea type="textarea" id="description" className="school-description"></textarea>
-
-            <button type="submit" className="school-save">Save</button>
-            <button type="submit" className="school-cancel" onClick={this.handleAddBtn}>
-              Cancel
-            </button>
-          </form>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          {schoolItems}
-          <button type="submit" onClick={this.handleAddBtn}>
-            Add
+          <button type="submit" className="school-save">Save</button>
+          <button type="submit" className="school-cancel" onClick={handleAddBtn}>
+            Cancel
           </button>
-        </div>
-      );
-    }
+        </form>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {schoolItems}
+        <button type="submit" onClick={handleAddBtn}>
+          Add
+        </button>
+      </div>
+    );
   }
 }
 
